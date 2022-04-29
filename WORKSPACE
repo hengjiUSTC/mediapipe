@@ -194,6 +194,12 @@ new_local_repository(
 )
 
 new_local_repository(
+  name = "apriltag",
+  path="third_party/apriltag",
+  build_file_content = all_content,
+)
+
+new_local_repository(
     name = "linux_ffmpeg",
     build_file = "@//third_party:ffmpeg_linux.BUILD",
     path = "/usr"

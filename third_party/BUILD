@@ -72,6 +72,19 @@ alias(
 
 load("@rules_foreign_cc//tools/build_defs:cmake.bzl", "cmake_external")
 
+cmake_external(
+    name = "apriltag",
+    cache_entries = {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_SHARED_LIBS": "ON",
+    },
+    lib_source = "@apriltag//:all",
+    shared_libraries = [
+        "libapriltag.so.3.2.0",
+    ],
+    visibility = ["//visibility:public"],
+)
+
 # Note: this determines the order in which the libraries are passed to the
 # linker, so if library A depends on library B, library B must come _after_.
 # Hence core is at the bottom.
